@@ -1,0 +1,16 @@
+score_counts = {}
+while True:
+    user_input = input("Enter a score (-1 to stop): ")
+    if user_input == "-1":
+        break
+    try:
+        score = int(user_input)
+    except ValueError:
+        print("Invalid input. Please enter a valid score.")
+        continue
+    if score in score_counts:
+        score_counts[score] += 1
+    else:
+        score_counts[score] = 1
+for score, count in score_counts.items():
+    print("{}: {}".format(score, count))
